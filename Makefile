@@ -1,2 +1,2 @@
 all:
-	python src/testprog.py
+	python3 src/testprog.py

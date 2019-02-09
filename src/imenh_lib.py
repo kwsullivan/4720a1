@@ -56,7 +56,7 @@ def enh_alphaTMean(im,alpha,n=5):
     for i in range(0,im.shape[0]):
         for j in range(0,im.shape[1]):
             # Extract the window area
-            block = im[max(i-v,0):min(i+v+1,im.shape[0]), max(j-v,0):min(j+v+1,im.shape[1])]
+            block = im[int(max(i-v,0)):int(min(i+v+1,im.shape[0])), int(max(j-v,0)):int(min(j+v+1,im.shape[1]))]
 
             # Reshape the neighborhood into a vector by flattening the 2D block
             wB = block.flatten()
@@ -94,8 +94,8 @@ def enh_truncMedian(im,n=5):
     for i in range(0,im.shape[0]):
         for j in range(0,im.shape[1]):
             # Extract the window area
-            block = im[max(i-v,0):min(i+v+1,im.shape[0]), max(j-v,0):min(j+v+1,im.shape[1])]
-            print (block.shape)
+            block = im[int(max(i-v,0)):int(min(i+v+1,im.shape[0])), int(max(j-v,0)):int(min(j+v+1,im.shape[1]))]
+            #print (block.shape)
             # Reshape the neighborhood into a vector by flattening the 2D block
             wB = block.flatten()
 
@@ -152,7 +152,7 @@ def enh_hybridMedian(im,n=5):
     for i in range(2,im.shape[0]-2):
         for j in range(2,im.shape[1]-2):
             # Extract the neighbourhood area
-            block = im[i-v:i+v+1, j-v:j+v+1]
+            block = im[int(i-v):int(i+v+1), int(j-v):int(j+v+1)]
             
             # Reshape the neighborhood into a vector by flattening the 2D block
             wB = block.flatten()
